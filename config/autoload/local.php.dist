@@ -1,0 +1,7 @@
+<?php
+
+declare(strict_types=1);
+
+// Add any configuration that is only needed in the local environment
+return [
+];
