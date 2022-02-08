@@ -2,6 +2,8 @@
 
 namespace Application\Handler;
 
+use Application\Service\View;
+use Laminas\Diactoros\Response\HtmlResponse;
 use Laminas\Diactoros\Response\JsonResponse;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -11,11 +13,14 @@ class SomeHandler implements RequestHandlerInterface
 {
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $response = new JsonResponse([
-            'bob' => 'was here in ' . __CLASS__,
-            'id' => $request->getAttribute('id', '0'),
-        ]);
+        $view = new View();
+        $content = $view->render('application/test.phtml', ['message' => 'Hello World!!!']);
 
-        return $response;
+        return new HtmlResponse($content);
+
+        return new JsonResponse([
+            'id' => $request->getAttribute('id', '0'),
+            'html' => $content,
+        ]);
     }
 }

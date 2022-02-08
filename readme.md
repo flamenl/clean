@@ -12,7 +12,7 @@ My goals:
 Of course this is somewhat inspired by the [frameworkless movement](https://www.frameworklessmovement.org/).
 
 ## Development setup
-Nginx is used for know with php 8.1.
+Nginx is used for now in combination with php 8.1.
 
 ```bash
 docker-compose up
@@ -23,7 +23,7 @@ docker-compose exec php composer install
 These areas are covered so far.
 
 ### Configuration
-The configuration is built from two php files. The global.php file is for all environments. The local.php file is just for the local enviroment. 
+The configuration is built from two php files. The global.php file is for all environments. The local.php file is just for the local environment. 
 
 ### DI
 I only use constructor injection that is provided through factories. Each factory has access to a basic [PSR-11](http://www.php-fig.org/psr/psr-11/) ContainerInterface.
@@ -32,7 +32,7 @@ I only use constructor injection that is provided through factories. Each factor
 All autoloading is done by composer.
 
 ### EventDispatching
-This uses the [Crell/Tukio](https://github.com/Crell/Tukio) component, but by design this [PSR-14](http://www.php-fig.org/psr/psr-14/) implementation kan be easily replaced by another PSR-14 implemetation.
+This uses the [Crell/Tukio](https://github.com/Crell/Tukio) component, but by design this [PSR-14](http://www.php-fig.org/psr/psr-14/) implementation can easily be replaced by another PSR-14 implementation.
 
 ### Middleware
 To prevent bloat I made a custom [psr-15](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-15-request-handlers.md) implementation. If you like a challenge, you should try making one yourself. 
@@ -50,7 +50,7 @@ This will most likely use the symfony console package.
 Doctrine2 is still king. It seems a bit bloaty sometimes, but is the most reliable piece of software I have used in the last 10 years.
 
 ### InputFilters and Validation
-When dealing with incoming data, my choise would be [InputFilter](https://docs.laminas.dev/laminas-inputfilter/) and [Validator](https://docs.laminas.dev/laminas-validator/) from the nice [Laminas people](https://getlaminas.org/). It has little to no requirements and is highly customizable. 
+When dealing with incoming data, the [InputFilter](https://docs.laminas.dev/laminas-inputfilter/) and [Validator](https://docs.laminas.dev/laminas-validator/) from the nice [Laminas people](https://getlaminas.org/) work well. It has little to no requirements and is highly customizable. 
 
 ### Templating
 Still looking for a templating engine, although I rarely need one (most php projects are api only). Ideally an interface that would allow engine swapping would be great.
